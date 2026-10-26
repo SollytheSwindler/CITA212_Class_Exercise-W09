@@ -51,7 +51,15 @@ public class Start_Move : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.CompareTag("Enemy") || collision.collider.CompareTag("Hazard"))
+        if (collision.collider.CompareTag("Enemy"))
+        {
+            isAlive = false;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Hazard"))
         {
             isAlive = false;
         }
